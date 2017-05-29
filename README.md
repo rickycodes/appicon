@@ -14,9 +14,7 @@ npm i -g appicon
 ### usage
 ```js
 const appicon = require('appicon')
-appicon('twitter', 'ios', (uri) => {
-  console.log(url)
-})
+appicon('twitter', 'ios', (uri) => console.log(uri))
 ```
 
 ### cli usage

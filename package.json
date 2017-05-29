@@ -1,6 +1,6 @@
 {
   "name": "appicon",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "return app icon from app stores",
   "main": "index.js",
   "scripts": {
