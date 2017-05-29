@@ -31,12 +31,14 @@ module.exports = (app, platform, cb) => {
     ios: {
       url: `${baseUrl}${app}+${platform}`,
       storeUrl: 'itunes.apple.com',
-      imgSelector: 'meta[itemprop]'
+      imgSelector: 'meta[itemprop]',
+      prop: 'content'
     },
     android: {
       url: `${baseUrl}${app}+${platform}+app`,
       storeUrl: 'play.google.com',
-      imgSelector: '.cover-image'
+      imgSelector: '.cover-image',
+      prop: 'src'
     }
   }
 
@@ -55,12 +57,11 @@ module.exports = (app, platform, cb) => {
     .wait(link)
     .click(link)
     .wait(platforms[platform].imgSelector)
-    .evaluate((platform, selector) => {
-      const qs = document.querySelector(selector)
-      return platform === 'ios'
-        ? qs.content
-        : qs.src
-    }, platform, platforms[platform].imgSelector)
+    .evaluate((platform, platforms) => {
+      const imgSelector = platforms[platform].imgSelector
+      const qs = document.querySelector(imgSelector)
+      return qs[platforms[platform].prop]
+    }, platform, platforms)
     .end()
     .then(loadImage)
 }
