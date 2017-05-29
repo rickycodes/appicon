@@ -1,0 +1,23 @@
+{
+  "name": "appicon",
+  "version": "1.0.0",
+  "description": "return app icon from app stores",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard -v"
+  },
+  "author": "@rickycodes",
+  "license": "BSD",
+  "dependencies": {
+    "nightmare": "^2.10.0"
+  },
+  "bin": {
+    "appicon": "cli.js"
+  },
+  "devDependencies": {
+    "standard": "^10.0.2"
+  },
+  "engines" : {
+    "node" : ">=6"
+  }
+}
