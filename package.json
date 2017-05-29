@@ -4,7 +4,9 @@
   "description": "return app icon from app stores",
   "main": "index.js",
   "scripts": {
-    "test": "standard -v"
+    "test": "standard -v",
+    "release:minor": "npm version minor && npm publish && git push --follow-tags",
+    "release:patch": "npm version patch && npm publish && git push --follow-tags"
   },
   "author": "@rickycodes",
   "license": "BSD",
