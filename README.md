@@ -1,4 +1,5 @@
-## appicon  
+appicon
+=======
 [![build status](https://api.travis-ci.org/rickycodes/appicon.svg?branch=master)](https://travis-ci.org/rickycodes/appicon/) 
 [![dependency status](https://david-dm.org/rickycodes/appicon.svg)](https://david-dm.org/rickycodes/appicon) 
 [![devDependency status](https://david-dm.org/rickycodes/appicon/dev-status.svg)](https://david-dm.org/rickycodes/appicon#info=devDependencies) 
