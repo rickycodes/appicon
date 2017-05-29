@@ -1,8 +1,6 @@
 appicon
 =======
 [![build status](https://api.travis-ci.org/rickycodes/appicon.svg?branch=master)](https://travis-ci.org/rickycodes/appicon/) 
-[![dependency status](https://david-dm.org/rickycodes/appicon.svg)](https://david-dm.org/rickycodes/appicon) 
-[![devDependency status](https://david-dm.org/rickycodes/appicon/dev-status.svg)](https://david-dm.org/rickycodes/appicon#info=devDependencies) 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) 
 [![npm-version](https://img.shields.io/npm/v/appicon.svg?style=flat)](https://www.npmjs.com/package/appicon) 
 
