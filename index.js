@@ -38,7 +38,7 @@ module.exports = (app, platform, cb) => {
     .click(link)
     .wait(platforms[platform].imgSelector)
     .evaluate((platform, platforms) => {
-      const imgSelector = platforms[platform].imgSelector
+      const { imgSelector } = platforms[platform]
       const qs = document.querySelector(imgSelector)
       return qs[platforms[platform].prop]
     }, platform, platforms)
