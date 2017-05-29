@@ -4,7 +4,9 @@
   "description": "return app icon from app stores",
   "main": "index.js",
   "scripts": {
-    "test": "standard -v",
+    "lint": "standard -v",
+    "tape": "tape test.js | faucet",
+    "test": "npm run lint & npm run tape",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
     "release:patch": "npm version patch && npm publish && git push --follow-tags"
   },
@@ -17,7 +19,9 @@
     "appicon": "cli.js"
   },
   "devDependencies": {
-    "standard": "^10.0.2"
+    "faucet": "0.0.1",
+    "standard": "^10.0.2",
+    "tape": "^4.6.3"
   },
   "engines": {
     "node": ">=6"
