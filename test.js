@@ -7,11 +7,11 @@ test('urls should be correct', t => {
   t.plan(2)
   t.equal(
     getSub('twitter', 'ios').url,
-    'https://www.google.com/#q=twitter+ios+app'
+    'https://www.google.com/#q=site:itunes.apple.com+twitter+ios+app'
   )
   t.equal(
     getSub('mario', 'android').url,
-    'https://www.google.com/#q=mario+android+app'
+    'https://www.google.com/#q=site:play.google.com+mario+android+app'
   )
 })
 
