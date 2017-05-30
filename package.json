@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "standard -v",
     "tape": "tape test.js | faucet",
-    "test": "npm run lint & npm run tape",
+    "test": "npm run lint && npm run tape",
     "release:minor": "npm version minor && npm publish && git push --follow-tags",
     "release:patch": "npm version patch && npm publish && git push --follow-tags"
   },
