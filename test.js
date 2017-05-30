@@ -29,10 +29,14 @@ test('format should return valid data uri', t => {
 })
 
 if (process.env.ONLINE) {
-  test('appicon uri should be valid data uri', t => {
+  test('appicon should work as promise', t => {
     t.plan(1)
-    appicon('twitter', 'ios', uri => {
-      t.equal(isUri(uri), true)
+    appicon('twitter', 'ios').then(uri => {
+      t.pass('yay!')
+      test('appicon uri should be valid data uri', t => {
+        t.plan(1)
+        t.equal(isUri(uri), true)
+      })
     })
   })
 }
