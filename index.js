@@ -1,9 +1,8 @@
 require('require-yaml')
-const Nightmare = require('nightmare')
-const nightmare = new Nightmare({ show: false })
 const http = require('http')
 const format = require('./format')
 const platforms = require('./platforms.yml')
+const getIconUrl = require('./get-icon-url')
 const die = (reason) => console.log(reason) & process.exit(1)
 
 module.exports = (app, platform, cb) => {
@@ -31,17 +30,6 @@ module.exports = (app, platform, cb) => {
   }
 
   const _platform = require('./add-search')(app, platform, platforms)
-  const link = `#res h3 a[href*="${_platform.site}"]`
 
-  nightmare
-    .goto(_platform.search)
-    .wait(link)
-    .click(link)
-    .wait(_platform.selector)
-    .evaluate((_platform) => {
-      const qs = document.querySelector(_platform.selector)
-      return qs[_platform.prop]
-    }, _platform)
-    .end()
-    .then(loadImage)
+  getIconUrl(_platform).then(loadImage)
 }
