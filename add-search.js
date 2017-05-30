@@ -1,5 +1,5 @@
 const baseUrl = 'https://www.google.com/#q='
-module.exports = (obj, app, platform) => Object.assign(
-  { search: `${baseUrl}site:${obj.url}+${app}+${platform}+app` },
-  obj
+module.exports = (app, platform, platforms) => Object.assign(
+  { search: `${baseUrl}site:${platforms[platform].site}+${app}+${platform}+app` },
+  platforms[platform]
 )

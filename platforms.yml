@@ -1,8 +1,8 @@
 ios:
-  url: itunes.apple.com
+  site: itunes.apple.com
   selector: meta[itemprop]
   prop: content
 android:
-  url: play.google.com
+  site: play.google.com
   selector: .cover-image
   prop: src

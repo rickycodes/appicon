@@ -30,8 +30,8 @@ module.exports = (app, platform, cb) => {
     die(`platform must be one of: ${Object.keys(platforms).join(', ')}`)
   }
 
-  const _platform = require('./add-search')(platforms[platform], app, platform)
-  const link = `#res h3 a[href*="${_platform.url}"]`
+  const _platform = require('./add-search')(app, platform, platforms)
+  const link = `#res h3 a[href*="${_platform.site}"]`
 
   nightmare
     .goto(_platform.search)

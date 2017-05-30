@@ -3,10 +3,10 @@ const test = require('tape')
 const format = require('./format')
 const platforms = require('./platforms.yml')
 const get = (app, platform) => require('./add-search')(
-  platforms[platform], app, platform
+  app, platform, platforms
 )
 
-test('urls should be correct', t => {
+test('search urls should be correct', t => {
   t.plan(2)
   t.equal(
     get('twitter', 'ios').search,
