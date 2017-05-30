@@ -13,7 +13,8 @@
   "author": "@rickycodes",
   "license": "BSD",
   "dependencies": {
-    "nightmare": "^2.10.0"
+    "nightmare": "^2.10.0",
+    "require-yaml": "0.0.1"
   },
   "bin": {
     "appicon": "cli.js"

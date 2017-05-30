@@ -1,7 +1,9 @@
+require('require-yaml')
 const Nightmare = require('nightmare')
 const nightmare = new Nightmare({ show: false })
 const http = require('http')
 const format = require('./format')
+const platforms = require('./platforms.yml')
 const die = (reason) => console.log(reason) & process.exit(1)
 
 module.exports = (app, platform, cb) => {
@@ -20,8 +22,6 @@ module.exports = (app, platform, cb) => {
     .get(url.replace(/^https:/, 'http:'))
     .on('response', res)
 
-  const platforms = require('./platforms')(app, platform)
-
   if (!app || !platform) {
     die('you must specify an app + platform')
   }
@@ -30,18 +30,18 @@ module.exports = (app, platform, cb) => {
     die(`platform must be one of: ${Object.keys(platforms).join(', ')}`)
   }
 
-  const link = `#res h3 a[href*="${platforms[platform].storeUrl}"]`
+  const _platform = require('./add-search')(platforms[platform], app, platform)
+  const link = `#res h3 a[href*="${_platform.url}"]`
 
   nightmare
-    .goto(platforms[platform].url)
+    .goto(_platform.search)
     .wait(link)
     .click(link)
-    .wait(platforms[platform].imgSelector)
-    .evaluate((platform, platforms) => {
-      const { imgSelector } = platforms[platform]
-      const qs = document.querySelector(imgSelector)
-      return qs[platforms[platform].prop]
-    }, platform, platforms)
+    .wait(_platform.selector)
+    .evaluate((_platform) => {
+      const qs = document.querySelector(_platform.selector)
+      return qs[_platform.prop]
+    }, _platform)
     .end()
     .then(loadImage)
 }

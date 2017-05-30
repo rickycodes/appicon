@@ -1,16 +1,19 @@
+require('require-yaml')
 const test = require('tape')
-const platforms = require('./platforms')
 const format = require('./format')
-const getSub = (app, platform) => platforms(app, platform)[platform]
+const platforms = require('./platforms.yml')
+const get = (app, platform) => require('./add-search')(
+  platforms[platform], app, platform
+)
 
 test('urls should be correct', t => {
   t.plan(2)
   t.equal(
-    getSub('twitter', 'ios').url,
+    get('twitter', 'ios').search,
     'https://www.google.com/#q=site:itunes.apple.com+twitter+ios+app'
   )
   t.equal(
-    getSub('mario', 'android').url,
+    get('mario', 'android').search,
     'https://www.google.com/#q=site:play.google.com+mario+android+app'
   )
 })
