@@ -1,6 +1,6 @@
 const chunks = []
 const http = require('http')
-const format = require('./format')
+const toUri = require('./to-uri')
 const data = (data) => chunks.push(data)
 
 module.exports = (url) => {
@@ -9,7 +9,7 @@ module.exports = (url) => {
       const contentType = res.headers['content-type']
       res.setEncoding('binary')
       res.on('data', data)
-      res.on('end', () => resolve(format(contentType, chunks)))
+      res.on('end', () => resolve(toUri(contentType, chunks)))
     }
 
     http

@@ -1,6 +1,6 @@
 require('require-yaml')
 const test = require('tape')
-const format = require('./format')
+const toUri = require('./to-uri')
 const platforms = require('./platforms.yml')
 const appicon = require('./')
 const get = (app, platform) => require('./add-search')(
@@ -23,9 +23,9 @@ test('search urls should be correct', t => {
   )
 })
 
-test('format should return valid data uri', t => {
+test('toUri should return valid data uri', t => {
   t.plan(1)
-  t.equal(format('image/jpeg', ['A', 'B']), 'data:image/jpeg;base64,QUI=')
+  t.equal(toUri('image/jpeg', ['A', 'B']), 'data:image/jpeg;base64,QUI=')
 })
 
 if (process.env.ONLINE) {

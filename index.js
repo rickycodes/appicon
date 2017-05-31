@@ -1,6 +1,6 @@
 require('require-yaml')
 const platforms = require('./platforms.yml')
-const getIconUrl = require('./get-icon-url')
+const getUrl = require('./get-url')
 const loadImage = require('./load-image')
 const die = (reason) => console.log(reason) & process.exit(1)
 
@@ -16,7 +16,7 @@ module.exports = (app, platform, callback) => {
   const _platform = require('./add-search')(app, platform, platforms)
 
   return new Promise((resolve, reject) => {
-    getIconUrl(_platform).then((url) => {
+    getUrl(_platform).then((url) => {
       loadImage(url).then(callback || resolve)
     })
   })
