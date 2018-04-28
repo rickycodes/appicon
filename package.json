@@ -13,7 +13,7 @@
   "author": "@rickycodes",
   "license": "BSD",
   "dependencies": {
-    "nightmare": "^2.10.0",
+    "nightmare": "^3.0.1",
     "require-yaml": "0.0.1"
   },
   "bin": {
@@ -21,7 +21,7 @@
   },
   "devDependencies": {
     "faucet": "0.0.1",
-    "standard": "^10.0.2",
+    "standard": "^11.0.1",
     "tape": "^4.6.3"
   },
   "engines": {
