@@ -1,5 +1,7 @@
 appicon
 =======
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/rickycodes/appicon.svg)](https://greenkeeper.io/)
 [![build status](https://api.travis-ci.org/rickycodes/appicon.svg?branch=master)](https://travis-ci.org/rickycodes/appicon/) 
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/) 
 [![npm-version](https://img.shields.io/npm/v/appicon.svg?style=flat)](https://www.npmjs.com/package/appicon) 
